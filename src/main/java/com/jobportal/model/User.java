@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -17,6 +18,7 @@ public class User {
 	@Id
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@OneToMany(mappedBy="ownerId")
 	private int userId;
 	
 	@Column(name="first_name", nullable=false)
