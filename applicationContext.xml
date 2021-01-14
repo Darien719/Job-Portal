@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+		
+		<!-- Tell spring-core we are using annotations -->
+		<context:annotation-config></context:annotation-config>
+		<context:component-scan base-package="com.jobportal"></context:component-scan>
+		
+		<tx:annotation-driven/>
+		
+		<!-- DATASOURCE -->
+		
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
+			<property name="url" value="jdbc:mariadb://database-1.c0xi5suntsgb.us-west-1.rds.amazonaws.com:3306/Project 2"></property>
+			<property name="username" value="ryanc"></property>
+			<property name="password" value="password"></property>
+		</bean>
+		
+		<!-- SESSION FACTORY -->
+		<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+			<property name="dataSource" ref="dataSource"></property>
+			<property name="packagesToScan" value="com.jobportal.model"></property>
+			<property name="hibernateProperties">
+				<props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
+					<prop key="hibernate.show_sql">true</prop>
+					<prop key="hibernate.format_sql">true</prop>
+					<prop key="hibernate.hbm2ddl.auto">create</prop>
+				</props>
+			</property>
+		</bean>
+		
+		 <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		 	<property name="sessionFactory" ref="sessionFactory"></property>
+		 </bean>
+		
+</beans>
