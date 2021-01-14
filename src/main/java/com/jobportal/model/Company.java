@@ -1,10 +1,15 @@
 package com.jobportal.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,9 +20,11 @@ public class Company {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int companyId;
 	
-	@Id
 	@Column(name = "company_name")
 	private String companyName;
+	
+	@OneToMany(mappedBy = "companyId", fetch = FetchType.LAZY)
+	private List <JobPosting> jobList = new ArrayList<>();
 	
 	public Company() {
 		// TODO Auto-generated constructor stub
@@ -29,12 +36,21 @@ public class Company {
 		this.companyName = companyName;
 	}
 
-	public int getCompanyId() {
-		return companyId;
+	public Company(int companyId, String companyName, List<JobPosting> jobList) {
+		super();
+		this.companyId = companyId;
+		this.companyName = companyName;
+		this.jobList = jobList;
 	}
 
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
+	public Company(String companyName, List<JobPosting> jobList) {
+		super();
+		this.companyName = companyName;
+		this.jobList = jobList;
+	}
+
+	public int getCompanyId() {
+		return companyId;
 	}
 
 	public String getCompanyName() {
@@ -45,8 +61,16 @@ public class Company {
 		this.companyName = companyName;
 	}
 
+	public List<JobPosting> getJobList() {
+		return jobList;
+	}
+
+	public void setJobList(List<JobPosting> jobList) {
+		this.jobList = jobList;
+	}
+
 	@Override
 	public String toString() {
-		return "Company [companyId=" + companyId + ", companyName=" + companyName + "]";
+		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", jobList=" + jobList + "]";
 	}
 }
