@@ -23,7 +23,7 @@ public class ApplicationStatus {
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private int statusID;
 
-		@Column(name = "status")
+		@Column(name = "status_name")
 		private String status;
 
 		// TODO: change name depending on field name
