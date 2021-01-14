@@ -1,6 +1,7 @@
 package com.jobportal.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -27,6 +29,10 @@ public class JobPosting {
 	@JoinColumn(name = "poster_id")
 	@JsonIgnore
 	private int posterId;
+	
+	//TO IMPORT TAGS
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<Tags> tags;
 	
 	@Column (name = "date", nullable = false)
 	private Timestamp date;
