@@ -23,7 +23,7 @@ public class Location {
 	@Column(name = "location_name")
 	private String locationName;
 	
-	@OneToMany(mappedBy = "locationId", fetch = FetchType.LAZY)
+	//@OneToMany(mappedBy = "locationId", fetch = FetchType.LAZY)
 	private List <JobPosting> jobList = new ArrayList<>();
 	
 	public Location() {

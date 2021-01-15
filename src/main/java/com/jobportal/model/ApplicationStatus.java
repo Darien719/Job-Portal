@@ -23,11 +23,11 @@ public class ApplicationStatus {
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private int statusID;
 
-		@Column(name = "status_name")
+		@Column(name = "status_name", nullable=false)
 		private String status;
 
 		// TODO: change name depending on field name
-		@OneToMany(mappedBy = "applicationStatus", fetch = FetchType.LAZY)
+		//@OneToMany(mappedBy = "applicationStatus", fetch = FetchType.LAZY)
 		private List<Application> appList = new ArrayList<Application>();
 		
 		

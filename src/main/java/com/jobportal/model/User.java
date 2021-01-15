@@ -18,7 +18,7 @@ public class User {
 	@Id
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@OneToMany(mappedBy="ownerId")
+	//@OneToMany(mappedBy="ownerId")
 	private int userId;
 	
 	@Column(name="first_name", nullable=false)
@@ -36,10 +36,10 @@ public class User {
 	@Column(name="password", nullable=false)
 	private String password;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	//@ManyToOne(cascade=CascadeType.ALL)
 	private int userRole;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	//@ManyToOne(cascade=CascadeType.ALL)
 	private int companyId;
 	
 	public User() {

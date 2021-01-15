@@ -26,7 +26,7 @@ public class UserRole {
 	@Column(name = "user_role")
 	private String userRole;
 	
-	@OneToMany(mappedBy="userRole", fetch=FetchType.LAZY)
+	//@OneToMany(mappedBy="userRole", fetch=FetchType.LAZY)
 	private List<User> userList = new ArrayList<User>();
 	
 	public UserRole() {

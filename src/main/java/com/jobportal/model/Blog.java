@@ -21,7 +21,7 @@ public class Blog {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int blogId;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	//@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="blog_owner_id")
 	private int ownerId;
 	

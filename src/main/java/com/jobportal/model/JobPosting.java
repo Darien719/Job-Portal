@@ -25,13 +25,13 @@ public class JobPosting {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int postingId;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "poster_id")
-	@JsonIgnore
+	//@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//@JoinColumn(name = "poster_id")
+	//@JsonIgnore
 	private int posterId;
 	
 	//TO IMPORT TAGS
-	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	//@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Tags> tags;
 	
 	@Column (name = "date", nullable = false)
@@ -43,19 +43,19 @@ public class JobPosting {
 	@Column (name = "description", nullable = false)
 	private String description;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "location")
-	@JsonIgnore
+	//@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//@JoinColumn(name = "location")
+	//@JsonIgnore
 	private int location;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "industry")
-	@JsonIgnore
+	//@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//@JoinColumn(name = "industry")
+	//@JsonIgnore
 	private int industry;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "company")
-	@JsonIgnore
+	//@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	//@JoinColumn(name = "company")
+	//@JsonIgnore
 	private int company;
 	
 	public JobPosting() {

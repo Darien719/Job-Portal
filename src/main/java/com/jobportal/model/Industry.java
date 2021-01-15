@@ -23,7 +23,7 @@ public class Industry {
 	@Column(name = "industry_name")
 	private String industryName;
 	
-	@OneToMany(mappedBy = "industryId", fetch = FetchType.LAZY)
+	//@OneToMany(mappedBy = "industryId", fetch = FetchType.LAZY)
 	private List <JobPosting> jobList = new ArrayList<>();
 	
 	public Industry() {
